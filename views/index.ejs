@@ -25,17 +25,22 @@
     </ul>
 </header>
 <h1> Crud completo</h1>
-
+<h2>Lista</h2>
 <table>
   <thead>
       <tr>
-          <th>Nome:</th>
+          <th>id</th>
+          <th>Nome</th>
           <th>Categoria</th>
       </tr>
   </thead>
   <tbody>
           <% produtos.map(produto=>{%>
               <tr>
+                <td>
+                  <%=produto.id%>
+              </td>
+
                   <td>
                       <%=produto.nome%>
                   </td>
@@ -60,17 +65,6 @@
     </form> 
   </div>
 
-  <div class="ListarGet">
-    <h2>Listar</h2>
-  
-    <form action="/criar" method="GET">
-     
-      <input type="text" placeholder="Nome" name="nome">
-      <input type="text" placeholder="Categoria" name="categoria">
-      <button type="submit">Criar</button>
-
-  </form> 
-</div>
 
 <div class="atualizarPut">
   <h2>Atualizar</h2>
@@ -86,7 +80,7 @@
 <div class="apgDelete">
   <h2>Apagar</h2>
 
-  <form action="/apagar/:id?_method=DELETE" method="GET">
+  <form action="/apagar?_method=DELETE" method="POST">
     <input type="text" placeholder="id" name="id">
     <button type="submit">Apagar</button>
 </form> 

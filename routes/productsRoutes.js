@@ -8,8 +8,8 @@ router.get('/listar', produtoController.todosProdutos);
 
 router.post('/criar', produtoController.criar);
 
-router.put('/alterar/:id', produtoController.atualizar);
+router.put('/alterar', produtoController.atualizar);
 
-router.delete('/apagar/:id', produtoController.apagar);
+router.delete('/apagar', produtoController.apagar);
 
 module.exports = router;

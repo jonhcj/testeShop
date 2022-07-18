@@ -4,7 +4,7 @@ const ProdutosService = require('../service/ProdutosService')
 
 const productsController = {
   index: async (req, res) => {
-    const produtos = await ProdutosService.ListarProdutos
+    const produtos = await ProdutosService.ListarProdutos()
     res.render("index", { produtos })
   },
 
@@ -21,12 +21,12 @@ const productsController = {
 
     const { nome, categoria } = req.body
     const produto = await ProdutosService.criarProduto(nome, categoria)
-    return res.json(produto)
+    return res.redirect('/')
   },
 
   atualizar: async (req, res) => {
 
-    const { id } = req.params;
+    const { id } = req.body;
 
     const { nome, categoria } = req.body
     await ProdutosService.atualizar(id, nome, categoria)
@@ -36,7 +36,7 @@ const productsController = {
 
   apagar: async (req, res) => {
 
-    const { id } = req.params;
+    const { id } = req.body;
 
     await ProdutosService.apagarProduto(id)
 
