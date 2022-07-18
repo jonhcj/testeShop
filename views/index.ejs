@@ -25,8 +25,8 @@
     </ul>
 </header>
 <h1> Crud completo</h1>
-<h2>Lista</h2>
-<table>
+<h2 style="padding:12px ;">Lista</h2>
+<table >
   <thead>
       <tr>
           <th>id</th>
@@ -35,20 +35,18 @@
       </tr>
   </thead>
   <tbody>
-          <% produtos.map(produto=>{%>
-              <tr>
-                <td>
-                  <%=produto.id%>
-              </td>
+   <% produtos.map(produto=>{%>
+  <tr>
+  <td>
+  <%=produto.id%>
+   </td>
 
-                  <td>
-                      <%=produto.nome%>
-                  </td>
-                  <td>
-                    <%=produto.categoria%>
-                     
-                          
-                  </td>
+    <td>
+     <%=produto.nome%>
+     </td>
+      <td>
+     <%=produto.categoria%>
+     </td>
               </tr>
           <%})%>
   </tbody>
@@ -69,7 +67,7 @@
 <div class="atualizarPut">
   <h2>Atualizar</h2>
 
-  <form action="/alterar/:id?_method=PUT" method="POST">
+  <form action="/alterar?_method=PUT" method="POST">
     <input type="text" placeholder="id" name="id">
    <input type="text" placeholder="Nome" name="nome">
     <input type="text" placeholder="Categoria" name="categoria">
