@@ -1,8 +1,62 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #2e7f06;
+  align-items: center;
+  padding: 18px;
+  height: 70px;
 }
 
-a {
-  color: #00B7FF;
+.logo {
+  width: 200px;
+  height: 100px;
+}
+
+.menu-superior {
+  font-weight: 600;
+  margin: 10px 20px 0 0;
+  font-size: 10px;
+}
+
+.lista {
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.criarPost {
+  padding: 12px;
+}
+
+.ListarGet {
+  padding: 12px;
+}
+
+.atualizarPut {
+  padding: 12px;
+}
+
+.apgDelete {
+  padding: 12px;
+}
+
+.rodape {
+  padding-bottom: 16;
+  margin-top: 16;
+  width: 100vw;
+  height: 90px;
+  background-color: #2e7f06;
+  margin-bottom: 0;
+  z-index: 10;
+
+}
+
+.redes-sociais {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  padding-top: 20px;
+  gap: 30px;
+
 }

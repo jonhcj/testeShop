@@ -1,13 +1,12 @@
-const { request } = require('express');
 const database = require('../database/models');
 
 const ProdutosService = {
-  ListaProdutos: async () => {
-    const products = await database.produtos.findAll();
+  ListarProdutos: async () => {
+    const products = await database.Produtos.findAll();
     return products;
   },
-  ListaProdutoData: async (produtoNome) => {
-    const product = await database.produtos.findOne({
+  ListarProdutoData: async (produtoNome) => {
+    const product = await database.Produtos.findOne({
       where: {
         nome: produtoNome
       }
@@ -19,7 +18,7 @@ const ProdutosService = {
     categoria
 
   ) => {
-    const newProduto = await database.produtos.create({
+    const newProduto = await database.Produtos.create({
       nome,
       categoria
 
@@ -31,14 +30,21 @@ const ProdutosService = {
     nome,
     categoria
   ) => {
-    await database.produtos.update({
+    await database.Produtos.update({
       nome,
       categoria
     }, {
       where: { id }
     })
-
   },
+  produtoPorId: async (id) => {
+    const produto = await database.Produtos.findByPk(id)
+    return produto
+  },
+  apagarProduto: async (id) => {
+    await database.Produtos.destroy({ where: { id } })
+
+  }
 
 }
 

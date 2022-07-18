@@ -1,16 +1,17 @@
 const { Router } = require("express");
+const produtos = require("../database/models/produtos");
 const ProdutosService = require('../service/ProdutosService')
 
 const productsController = {
-  index: (req, res) => {
-
-    res.render("index");
+  index: async (req, res) => {
+    const produtos = await ProdutosService.ListarProdutos
+    res.render("index", { produtos })
   },
 
 
   todosProdutos: async (req, res) => {
 
-    const produtos = await cadastroProdutos.ListarProdutos();
+    const produtos = await ProdutosService.ListarProdutos();
 
     return res.json(produtos);
 
@@ -28,21 +29,20 @@ const productsController = {
     const { id } = req.params;
 
     const { nome, categoria } = req.body
-
-    console.log(req.body)
-
-    return res.json(produtos);
+    await ProdutosService.atualizar(id, nome, categoria)
+    const produto = await ProdutosService.produtoPorId(id)
+    return res.json(produto);
   },
 
   apagar: async (req, res) => {
 
     const { id } = req.params;
 
-    await cadastroProduto.apagarPoduto(id)
+    await ProdutosService.apagarProduto(id)
 
     return res.send("Produto " + id + " apagado")
   },
 }
 
 
-module.exports = ProductController
+module.exports = productsController

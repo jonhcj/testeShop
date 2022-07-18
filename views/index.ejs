@@ -4,15 +4,110 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crud produtos</title>
+  <link rel="icon" type="image/png" sizes="32x32" href=".images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"> 
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <title>TesteShop</title>
 </head>
 <body>
-  <h2>Criar<h2>
-    <form action="/show" method="POST">
-        <input type="text" placeholder="id" name="id">
-        <input type="text" placeholder="Nome " name="name">
-        <input type="text" placeholder="Categoria" name="gategory">
-        <button type="submit">Submit</button>
+<header>
+  <div class="header">
+    <img class="logo" src="images/logo_testeShop.png" />
+
+  </div>
+
+  <nav class="menu-superior">
+    <ul class="lista">
+      <li><a href="#">Comprar</a></li>
+      <li><a href="#">Vender</a></li>
+      <li><a href="#">Sobre</a></li>
+    </ul>
+</header>
+<h1> Crud completo</h1>
+
+<table>
+  <thead>
+      <tr>
+          <th>Nome:</th>
+          <th>Categoria</th>
+      </tr>
+  </thead>
+  <tbody>
+          <% produtos.map(produto=>{%>
+              <tr>
+                  <td>
+                      <%=produto.nome%>
+                  </td>
+                  <td>
+                    <%=produto.categoria%>
+                     
+                          
+                  </td>
+              </tr>
+          <%})%>
+  </tbody>
+</table>
+
+    <div class="criarPost">
+      <h2>Criar<h2></h2>
+    <form action="/criar" method="POST">
+       
+        <input type="text" placeholder="Nome" name="nome">
+        <input type="text" placeholder="Categoria" name="categoria">
+        <button type="submit">Criar</button>
+
     </form> 
+  </div>
+
+  <div class="ListarGet">
+    <h2>Listar</h2>
+  
+    <form action="/criar" method="GET">
+     
+      <input type="text" placeholder="Nome" name="nome">
+      <input type="text" placeholder="Categoria" name="categoria">
+      <button type="submit">Criar</button>
+
+  </form> 
+</div>
+
+<div class="atualizarPut">
+  <h2>Atualizar</h2>
+
+  <form action="/alterar/:id?_method=PUT" method="POST">
+    <input type="text" placeholder="id" name="id">
+   <input type="text" placeholder="Nome" name="nome">
+    <input type="text" placeholder="Categoria" name="categoria">
+    <button type="submit">Alterar</button>
+</form> 
+</div>
+
+<div class="apgDelete">
+  <h2>Apagar</h2>
+
+  <form action="/apagar/:id?_method=DELETE" method="GET">
+    <input type="text" placeholder="id" name="id">
+    <button type="submit">Apagar</button>
+</form> 
+</div>
+
+
+  <footer class="rodape">
+    <div>
+    <ul class="redes-sociais">
+      <li><a href="#">
+        <img src="images/facebook.svg" alt="icone facebook" width="50px">
+      </a></li>
+      <li><a href="#">
+        <img src="images/instagram.svg" alt="icone instagram" width="50px">
+      </a></li>
+      <li><a href="#">
+        <img src="images/linkedin.svg" alt="icone linkedin" width="50px">
+      </a></li>
+      </ul>
+  </footer>
+</div>
+
 </body>
 </html>
