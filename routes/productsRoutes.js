@@ -12,4 +12,5 @@ router.put('/alterar', produtoController.atualizar);
 
 router.delete('/apagar', produtoController.apagar);
 
+
 module.exports = router;

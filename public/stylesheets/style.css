@@ -19,6 +19,11 @@ header {
   font-size: 10px;
 }
 
+.back-2 {
+  background-image: url('../images/back.png');
+  background-repeat: repeat
+}
+
 .lista {
   font-size: 18px;
   list-style-type: none;

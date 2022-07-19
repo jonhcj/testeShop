@@ -20,8 +20,10 @@ const productsController = {
   criar: async (req, res) => {
 
     const { nome, categoria } = req.body
+
     const produto = await ProdutosService.criarProduto(nome, categoria)
     return res.redirect('/')
+
   },
 
   atualizar: async (req, res) => {
@@ -29,9 +31,11 @@ const productsController = {
     const { id } = req.body;
 
     const { nome, categoria } = req.body
+
     await ProdutosService.atualizar(id, nome, categoria)
     const produto = await ProdutosService.produtoPorId(id)
     return res.redirect('/');
+
   },
 
   apagar: async (req, res) => {
@@ -41,6 +45,7 @@ const productsController = {
     await ProdutosService.apagarProduto(id)
 
     return res.redirect('/')
+
   },
 }
 
